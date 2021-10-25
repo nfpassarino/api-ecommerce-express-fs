@@ -19,7 +19,7 @@ cartRoutes.get('/:id/productos', (req, res) => {
 });
 
 cartRoutes.post('/', (req, res) => {
-    const isAdmin = req.isAdmin;
+    const isAdmin = req.body.isAdmin;
     if (isAdmin) {
         const newCart = req.body.Cart;
         cartController.writeNewCart(newCart)
@@ -41,7 +41,7 @@ cartRoutes.post('/', (req, res) => {
 
 cartRoutes.delete('/:id', (req, res) => {
     const { id } = req.params;
-    const isAdmin = req.isAdmin;
+    const isAdmin = req.body.isAdmin;
     if (isAdmin) {
         cartController.deleteCart(id)
             .then(all => res.json({

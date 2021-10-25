@@ -28,7 +28,7 @@ productRoutes.get('/:id', (req, res) => {
 });
 
 productRoutes.post('/', (req, res) => {
-    const isAdmin = req.isAdmin;
+    const isAdmin = req.body.isAdmin;
     if (isAdmin) {
         const newProduct = req.body.product;
         productController.writeNewProduct(newProduct)
@@ -50,9 +50,9 @@ productRoutes.post('/', (req, res) => {
 
 productRoutes.put('/:id', (req, res) => {
     const { id } = req.params;
-    const newProduct = req.body;
-    const isAdmin = req.isAdmin;
+    const isAdmin = req.body.isAdmin;
     if (isAdmin) {
+        const newProduct = req.body.product;
         productController.updateProduct(id, newProduct)
             .then(id => {
                 productController.fetchProductById(id)
@@ -72,7 +72,7 @@ productRoutes.put('/:id', (req, res) => {
 
 productRoutes.delete('/:id', (req, res) => {
     const { id } = req.params;
-    const isAdmin = req.isAdmin;
+    const isAdmin = req.body.isAdmin;
     if (isAdmin) {
         productController.deleteProduct(id)
             .then(all => res.json({

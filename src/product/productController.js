@@ -26,5 +26,5 @@ exports.updateProduct = async (id, newProduct) => {
 exports.deleteProduct = async (id) => {
     const productContainer = await fileContainer.initialize('productos.txt');
     await productContainer.deleteById(Number(id));
-    return await fetchAllProducts();
+    return await this.fetchAllProducts();
 };

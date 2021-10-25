@@ -25,6 +25,6 @@ app.get('/', async (req, res) => {
     });
 });
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Servidor http escuchando en el puerto ${PORT}`);
 });

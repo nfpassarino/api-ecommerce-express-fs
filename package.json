@@ -2,15 +2,17 @@
   "name": "api-ecommerce-express-fs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "dev": "nodemon --watch src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "nodemon": "^2.0.14"
   }
 }

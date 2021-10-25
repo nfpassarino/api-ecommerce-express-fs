@@ -26,5 +26,5 @@ exports.updateCart = async (id, newProduct) => {
 exports.deleteCart = async (id) => {
     const cartContainer = await fileContainer.initialize('carritos.txt');
     await cartContainer.deleteById(Number(id));
-    return await fetchAllCarts();
+    return await this.fetchAllCarts();
 };
