@@ -1,30 +1,30 @@
 const fileContainer = require('../FileContainer');
 
-exports.fetchAllProducts = async () => {
-    const productContainer = await fileContainer.initialize('productos.txt');
-    return productContainer.getAll();
+exports.fetchAllCarts = async () => {
+    const cartContainer = await fileContainer.initialize('carritos.txt');
+    return cartContainer.getAll();
 };
 
-exports.fetchProductById = async (id) => {
-    const productContainer = await fileContainer.initialize('productos.txt');
-    const obj = productContainer.getById(Number(id));
+exports.fetchCartById = async (id) => {
+    const cartContainer = await fileContainer.initialize('carritos.txt');
+    const obj = cartContainer.getById(Number(id));
     return obj;
 };
 
-exports.writeNewProduct = async (newProduct) => {
-    const productContainer = await fileContainer.initialize('productos.txt');
-    const product = await productContainer.save(newProduct);
-    return product;
+exports.writeNewCart = async (newCart) => {
+    const cartContainer = await fileContainer.initialize('carritos.txt');
+    const cart = await cartContainer.save(newCart);
+    return cart;
 };
 
-exports.updateProduct = async (id, newProduct) => {
-    const productContainer = await fileContainer.initialize('productos.txt');
+exports.updateCart = async (id, newProduct) => {
+    const productContainer = await fileContainer.initialize('carritos.txt');
     const product = await productContainer.updateById(Number(id), newProduct);
     return product;
 };
 
-exports.deleteProduct = async (id) => {
-    const productContainer = await fileContainer.initialize('productos.txt');
-    await productContainer.deleteById(Number(id));
-    return await fetchAllProducts();
+exports.deleteCart = async (id) => {
+    const cartContainer = await fileContainer.initialize('carritos.txt');
+    await cartContainer.deleteById(Number(id));
+    return await fetchAllCarts();
 };

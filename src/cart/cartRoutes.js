@@ -25,9 +25,9 @@ cartRoutes.post('/', (req, res) => {
         cartController.writeNewCart(newCart)
             .then(id => {
                 cartController.fetchCartById(id)
-                    .then(pro => res.json({
-                        message: 'Carto guardado',
-                        data: pro
+                    .then(car => res.json({
+                        message: 'Carrito guardado',
+                        data: car
                     }))
             })
             .catch(e => console.error(e));
@@ -45,7 +45,7 @@ cartRoutes.delete('/:id', (req, res) => {
     if (isAdmin) {
         cartController.deleteCart(id)
             .then(all => res.json({
-                message: 'Carto eliminado',
+                message: 'Carrito eliminado',
                 data: all
             }))
             .catch(e => console.error(e));
