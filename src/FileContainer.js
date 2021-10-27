@@ -27,7 +27,7 @@ module.exports = class FileContainer {
     async save(obj) {
         if(typeof obj === 'object') {
             obj['id'] = ++this.lastId;
-            obj['timestamp'] = moment().format('D/M/YY H:m');
+            obj['timestamp'] = moment();
             this.objects.push(obj);
             await fsPromises.writeFile(this.filePath, JSON.stringify({ objects: this.objects }, null, 2));
             return obj.id;
@@ -48,7 +48,7 @@ module.exports = class FileContainer {
     }
 
     getById(id) {
-        if(typeof id === 'number' && this.objects.length > 0 && id >0 && id <= this.objects.length) {
+        if(typeof id === 'number' && this.objects.length > 0 && id > 0 && id <= this.objects.length) {
             return this.objects[id - 1];
         } else {
             return null;
